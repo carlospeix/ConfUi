@@ -1,0 +1,65 @@
+﻿x El metodo GetProperties del metadata provider, aparentemente, no esta devolviendo
+  las propiedades del las clases base.
+  Invalid: el problema es que estaba entrando recurtsivamente sobre el provider.
+
+x Ensayar si puedo enviar el selectList directamente sobre ViewData[propertyName]
+  en lugar de hacerlo sobre additional data.
+  Invalid: no pude resolverlo, el ViewData na es accesible desde el metadata provider
+
+- Poner en marcha client validations
+
+- Analizar posibilidades de extension de metadata (en AdditionalProperties?)
+
+- Analizar posibilidades de extension de validators
+
+- Indicar las columnas que deben mostrarse en las tablas
+
+- 
+
+x Parece que no funciona el required para References
+
+- Agregar masivamente los tipos de un namespace o heredados de una clase
+X Definir masivamente propiedades como Id ("Id" o algo asi)
+X Cuando defino una propiedad como Id, deberia ocultarla de la edicion
+
+
+DomainAccessor debe soportar
+	- OrdenadoPor y tipo de ordenamiento
+	- Paginacion
+
+	public ActionResult ObtenerDatosGrid(string sidx, string sord, int page, int rows)
+        {
+            _queryTransportistas = ObtenerCriteriosEstablecidos();
+
+            var pagedResults = _queryTransportistas.OrdenadoPor(sidx, sord).ObtenerMuchos(rows, page);
+
+            var datos = pagedResults.Results;
+            var totalRegistros = pagedResults.TotalCount; // Contar todos los registros
+
+            var data = new
+            {
+                page = page,                // Página actual
+                records = totalRegistros,   // Total de registros (obtenido del modelo)
+                total = totalRegistros / rows + (totalRegistros % rows != 0 ? 1 : 0), // Feo
+                rows = from a in datos
+                       select new
+                       {
+                           id = a.Id,                // ID único de la fila
+                           cell = new string[] {     // Array de celdas de la fila
+                               a.RazonSocial.Trim(),
+                               a.Cuit.ToString(),
+                               (a.EMail == null) ? "" : a.EMail.Trim(),
+                               (a.Telefono == null) ? "" : a.Telefono.Trim(),
+                               a.ServiciosHabilitados.ToString(),
+                               (a.AvisoDeDeuda) ? "SI" : "NO"
+                           }
+                       }
+            };
+
+            return Json(data);
+        }
+
+
+Metadata debe soportar
+	- Columnas para la grilla
+	- Descripciones arbitrarias

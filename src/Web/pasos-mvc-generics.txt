@@ -1,0 +1,6 @@
+﻿- Agregar referencia a MvcGenerics
+- copiar GenericsController
+- copiar carpetas de vistas Generics
+- modificar el ControllerFactory
+- agregar DomainAccesor y DomainMutator
+- agregar MvcGenericsConfig

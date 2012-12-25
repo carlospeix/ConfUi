@@ -1,0 +1,2 @@
+- Educadores: No deberia mostrar en la edicion pa propiedad NombreCompleto
+- Refactoring de los queries par facilitar la inyeccion

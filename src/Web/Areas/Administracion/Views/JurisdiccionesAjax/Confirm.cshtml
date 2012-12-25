@@ -1,0 +1,14 @@
+﻿@model Centros.Model.Jurisdiccion
+<fieldset>
+    <legend>Jurisdicción grabada</legend>
+    @Html.DisplayForModel()
+</fieldset>
+<p>
+	<a id="linkCerrar" href="#close">Cerrar</a>
+</p>
+<script type="text/javascript">
+	$('#linkCerrar').click(function () {
+		$('#popupForm').dialog('close');
+		return false;
+	});
+</script>

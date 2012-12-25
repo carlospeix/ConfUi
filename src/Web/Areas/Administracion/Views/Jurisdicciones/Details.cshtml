@@ -1,0 +1,18 @@
+﻿@model Centros.Model.Jurisdiccion
+
+@{
+    ViewBag.Title = "Detalles de " + Model.ToString();
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Datos de la jurisdicción</legend>
+
+    @Html.DisplayForModel()
+
+</fieldset>
+<p>
+    @Html.ActionLink("Modificar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

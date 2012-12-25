@@ -1,0 +1,23 @@
+﻿@model Centros.Model.Educador
+
+@{
+    ViewBag.Title = "Modificando " + Model.ToString();
+}
+
+<h2>Editando</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Datos del educador</legend>
+
+        @Html.EditorForModel()
+
+        <div>
+            <input type="submit" value="Grabar" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

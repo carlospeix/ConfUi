@@ -1,0 +1,13 @@
+﻿@model Centros.Model.Jurisdiccion
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Datos de la jurisdicción</legend>
+        @Html.DisplayForModel()
+        <div>
+            <input type="submit" value="Eliminar" />
+        </div>
+    </fieldset>
+}
+<script type="text/javascript">
+	wireAjaxForm();
+</script>

@@ -1,0 +1,26 @@
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<System.Object>" %>
+<fieldset>
+	<legend><%= ViewData.ModelMetadata.Description %></legend>
+		<% foreach (var prop in ViewData.ModelMetadata.Properties.Where(pm => pm.ShowForEdit && !ViewData.TemplateInfo.Visited(pm))) { %>
+			<% if (prop.HideSurroundingHtml) { %>
+				<%= Html.Editor(prop.PropertyName) %>
+			<% } else { %>
+			<% if (!String.IsNullOrEmpty(Html.Label(prop.PropertyName).ToHtmlString())) { %>
+                <div class="editor-label"><%= Html.Label(prop.PropertyName) %></div>
+			<% } %>
+            <div class="editor-field">
+                <% if (prop.AdditionalValues.ContainsKey("selectList")) { %>
+					<% 
+                    // Parece que hay un bug en Html.DropDownList, si lo paso como segundo
+					// parametro no funciona el "selected"
+                    %>
+					<% ViewData[prop.PropertyName] = prop.AdditionalValues["selectList"]; %>
+                    <%= Html.DropDownList(prop.PropertyName, "Seleccione...") %>
+				<% } else { %>
+                    <%= Html.Editor(prop.PropertyName) %>
+				<% } %>
+                <%= Html.ValidationMessage(prop.PropertyName, "*") %>
+            </div>
+        <% } %>
+    <% } %>
+</fieldset>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Centros.Model.Jurisdiccion>
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Comandos</th>
+	</tr>
+	@foreach (var item in Model) {
+	<tr>
+		<td>@item.Nombre</td>
+		<td>
+			<a class="linkEditar" href="#edit/@item.Id">Editar</a>
+			<a class="linkDetalles" href="#details/@item.Id">Detalles</a>
+			<a class="linkBorrar" href="#delete/@item.Id">Borrar</a>
+		</td>
+	</tr>
+	}
+</table>
+<script type="text/javascript">
+	$(".linkEditar").each(function () {
+		$(this).click(function () {
+			var id = estractId($(this).attr("href"));
+			if (id != undefined) {
+				openModalForm('@Url.Action("Edit")?id=' + id);
+			}
+			return false;
+		});
+	});
+
+	$(".linkDetalles").each(function () {
+		$(this).click(function () {
+			var id = estractId($(this).attr("href"));
+			if (id != undefined) {
+				openModalForm('@Url.Action("Details")?id=' + id);
+			}
+			return false;
+		});
+	});
+
+	$(".linkBorrar").each(function () {
+		$(this).click(function () {
+			var id = estractId($(this).attr("href"));
+			if (id != undefined) {
+				openModalForm('@Url.Action("Delete")?id=' + id);
+			}
+			return false;
+		});
+	});
+</script>

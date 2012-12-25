@@ -1,0 +1,32 @@
+﻿@model Centros.Model.Institucion
+
+@{
+    ViewBag.Title = "Modificando " + Model.ToString();
+}
+
+<h2>Modificando</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Datos de la institución</legend>
+
+        @Html.EditorForModel()
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Jurisdiccion)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Jurisdiccion")
+            @Html.ValidationMessageFor(m => m.Jurisdiccion)
+        </div>
+
+        <br />
+        <div>
+            <input type="submit" value="Grabar" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

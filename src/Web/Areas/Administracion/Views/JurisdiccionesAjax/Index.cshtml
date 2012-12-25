@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Centros.Model.Jurisdiccion>
+
+@{
+    ViewBag.Title = "Listado de jurisdicciones";
+}
+
+<h2>Listado</h2>
+
+<p>
+	<a id="linkNuevo" href="#create">Crear nuevo</a>
+</p>
+
+<div id="list">
+</div>
+
+<div id="popupForm" style="display:none;">
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#popupForm').dialog({
+			title: 'Jurisdicción',
+			closeText: 'Cerrar',
+			autoOpen: false,
+			modal: true,
+			close: updateList
+		});
+
+		$('#linkNuevo').click(function () {
+			openModalForm('@Url.Action("Create")');
+			return false;
+		});
+
+		updateList();
+	});
+
+	function openModalForm(loadUrl) {
+		$('#popupForm').html('<p>Por favor espere...</p>');
+		$('#popupForm').dialog('open').load(loadUrl);
+	}
+
+	function wireAjaxForm() {
+		$('form').submit(function () {
+			$.post(
+			this.action,
+			$(this).serialize(),
+			function (data) {
+				$('#popupForm').html(data);
+			});
+			return false;
+		});
+	}
+
+	function updateList() {
+		$('#list').html('<p>Por favor espere...</p>');
+		$('#list').load('@Url.Action("List")');
+	}
+
+	// 0123456
+	// #edit/xxxxxxxxxxxxxxxxxxxxxxxxx
+	function estractId(href) {
+		var slashPos = href.lastIndexOf('/');
+		if (slashPos == -1) {
+			return;
+		}
+		return href.substring(slashPos + 1);
+	}
+</script>

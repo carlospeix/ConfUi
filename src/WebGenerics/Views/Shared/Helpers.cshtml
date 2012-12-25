@@ -1,0 +1,9 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@helper JurisdiccionEditor(string property, IEnumerable<Centros.Model.Jurisdiccion> jurisdicciones) {
+    <select id="@property" name="@property">
+    @foreach (var jurisdiccion in jurisdicciones)
+    {
+    }
+    </select>
+}

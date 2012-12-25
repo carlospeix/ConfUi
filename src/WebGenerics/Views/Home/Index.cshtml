@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    Demostracion de MvcGenerics, un framework para generar dinamicamente
+    editores de entidades sencillas.
+</p>
+<ul>
+    <li><a href="@Url.Content("~/Generic/Jurisdiccion/Index")">Jurisdicciones</a></li>
+    <li><a href="@Url.Content("Generic/Institucion/Index")">Instituciones</a></li>
+    <li><a href="@Url.Content("Generic/Educador/Index")">Educadores</a></li>
+    <li><a href="@Url.Content("Generic/Centro/Index")">Centros</a></li>
+    <li><a href="@Url.Content("Generic/Organizacion/Index")">Organizaciones</a></li>
+    <li><a href="@Url.Content("Generic/Taller/Index")">Talleres</a></li>
+</ul>

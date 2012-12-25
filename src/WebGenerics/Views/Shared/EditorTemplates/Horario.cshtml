@@ -1,0 +1,30 @@
+﻿@inherits System.Web.Mvc.WebViewPage<Centros.Model.Horario>
+<fieldset>
+	<div class="editor-label">
+		@Html.LabelFor(m => m.Dia)
+	</div>
+	<div class="editor-field">
+		@{
+			var dia = Model.Dia.HasValue ? (int)Model.Dia.Value : 0;
+			var list = new SelectList(new List<SelectListItem>
+							   {
+								   new SelectListItem() {Value = "0", Text = "Domingo"},
+								   new SelectListItem() {Value = "1", Text = "Lunes"},
+								   new SelectListItem() {Value = "2", Text = "Martes"},
+								   new SelectListItem() {Value = "3", Text = "Miércoles"},
+								   new SelectListItem() {Value = "4", Text = "Jueves"},
+								   new SelectListItem() {Value = "5", Text = "Viernes"},
+								   new SelectListItem() {Value = "6", Text = "Sábado"}
+							   }, "Value", "Text", dia);
+		}
+		@Html.DropDownListFor(m => m.Dia, list)
+		@Html.ValidationMessageFor(m => m.Dia)
+	</div>
+	<div class="editor-label">
+		@Html.LabelFor(m => m.Hora)
+	</div>
+	<div class="editor-field">
+		@Html.TextBoxFor(m => m.Hora)
+		@Html.ValidationMessageFor(m => m.Hora)
+	</div>
+</fieldset>

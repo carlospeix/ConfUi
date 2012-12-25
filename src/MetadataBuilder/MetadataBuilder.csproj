@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD2E7DA2-92F2-44A9-8141-19E327951743}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tandil.MetadataBuilder</RootNamespace>
+    <AssemblyName>Tandil.MetadataBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MVC3\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseTypes\GenericsMappings.cs" />
+    <Compile Include="BaseTypes\GenericsPropertyInfo.cs" />
+    <Compile Include="BaseTypes\GenericsTypeInfo.cs" />
+    <Compile Include="ConfigurationHolder.cs" />
+    <Compile Include="IDomainAccessor.cs" />
+    <Compile Include="IDomainMutator.cs" />
+    <Compile Include="IModelRegistrar.cs" />
+    <Compile Include="IPropertyRegistrar.cs" />
+    <Compile Include="ITypeRegistrar.cs" />
+    <Compile Include="Metadata\GenericsModelMetadata.cs" />
+    <Compile Include="Metadata\GenericsModelMetadataProvider.cs" />
+    <Compile Include="Metadata\ModelMetadataMappings.cs" />
+    <Compile Include="Metadata\ModelMetadataPropertyInfo.cs" />
+    <Compile Include="Metadata\ModelMetadataTypeInfo.cs" />
+    <Compile Include="ModelBinder\ReferenceModelBinder.cs" />
+    <Compile Include="PatternApplier.cs" />
+    <Compile Include="PatternAppliers\BasePatternApplier.cs" />
+    <Compile Include="PatternAppliers\IdPatternApplier.cs" />
+    <Compile Include="PatternAppliers\ReferencePatternApplier.cs" />
+    <Compile Include="Registrars\GenericPropertyRegistrar.cs" />
+    <Compile Include="Registrars\GenericTypeRegistrar.cs" />
+    <Compile Include="Registrars\ModelRegistrar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrars\PropertyRegistrar.cs" />
+    <Compile Include="TypeExtensions.cs" />
+    <Compile Include="Registrars\TypeRegistrar.cs" />
+    <Compile Include="Validation\GenericsValidatorProvider.cs" />
+    <Compile Include="Validation\ValidationMappings.cs" />
+    <Compile Include="Validation\ValidationPropertyInfo.cs" />
+    <Compile Include="Validation\ValidationTypeInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_pendientes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

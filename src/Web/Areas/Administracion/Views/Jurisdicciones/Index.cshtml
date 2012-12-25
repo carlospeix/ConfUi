@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Centros.Model.Jurisdiccion>
+
+@{
+    ViewBag.Title = "Listado de jurisdicciones";
+}
+
+<h2>Listado</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Comandos</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Nombre</td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+</table>
+

@@ -1,0 +1,24 @@
+﻿@model Centros.Model.Organizacion
+
+@{
+    ViewBag.Title = "Eliminando " + Model.ToString();
+}
+
+<h2>Eliminando</h2>
+
+<h3>¿Está seguro de que desea borrar este dato?</h3>
+
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Datos de la organización</legend>
+
+        @Html.DisplayForModel()
+
+        <div>
+            <input type="submit" value="Eliminar" />
+        </div>
+    </fieldset>
+}
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

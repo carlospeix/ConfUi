@@ -1,0 +1,48 @@
+﻿@model Centros.Model.Centro
+
+@{
+    ViewBag.Title = "Modificando " + Model.ToString();
+}
+
+<h2>Modificando</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Datos del centro</legend>
+
+        @Html.EditorForModel()
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.EducadorACargo)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EducadorACargo")
+            @Html.ValidationMessageFor(m => m.EducadorACargo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Institucion)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Institucion")
+            @Html.ValidationMessageFor(m => m.Institucion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Horario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Horario)
+            @Html.ValidationMessageFor(m => m.Horario)
+        </div>
+
+        <br />
+        <div>
+            <input type="submit" value="Grabar" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

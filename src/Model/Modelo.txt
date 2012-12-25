@@ -1,0 +1,45 @@
+﻿Centro
+Marco dentro del cual el "Educador" imparte el "Taller". El lugar fisico esta
+	definido por la "Institucion"
+Atributos: Nombre, telefono, horarios, +Institucion, +*Educador(es) a cargo
+
+
+Participante (o Persona? o Educando?)
+Persona que participa del Taller
+Atributos: Nombre, apellido, telefono, direccion, +*Organizacion(es)
+
+
+Participacion (o Actividad?)
+Asociacion entre un Participante y un Taller
+Atributos: inicio, fin, +Taller, *Materiales entregados (descripcion, fecha)
+
+
+Taller (o Actividad)
+Instancia con principio y fin donde el Educador brinda el Taller a los Participate
+Atributos: Nombre, inicio, fin, +Centro, +*Participantes,
+	*Materiales entregados (descripcion, fecha)
+
+
+Registro
+Constatacion de acciones (texto, video, imagenes)
+Atributos: Fecha/hora, Contenido, +Taller,
+
+
+Institucion
+Lugares fisicos donde un Educador brinda un Taller
+Atributos: Nombre, telefono, direccion, +Jurisdiccion
+
+
+Organizacion
+Tales como cooperativas, etc
+Atributos: Nombre, telefono, direccion
+
+
+Educador (o Alfabetizador?)
+Persona que imparte el "Taller"
+Atributos: Nombre, apellido, telefono, direccion
+
+
+Jurisdiccion
+Division politico-geografica en la que reside una Organizacion
+Atributos: Nombre

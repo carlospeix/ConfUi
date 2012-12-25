@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    @*
+    *@
+</head>
+
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <h1>Centros de educación popular</h1>
+            </div>
+
+            <div id="loginDisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+
+            <div id="menuContainer">
+                <ul id="menu">
+                    <li>@Html.ActionLink("Principal", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Registro", "Index", "Registro")</li>
+                    <li>@Html.ActionLink("Participantes", "Index", "Participantes")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            @RenderBody()
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

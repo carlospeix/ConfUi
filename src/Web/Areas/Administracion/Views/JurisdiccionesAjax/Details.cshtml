@@ -1,0 +1,15 @@
+﻿@model Centros.Model.Jurisdiccion
+<fieldset>
+    <legend>Detalle de la jurisdicción</legend>
+    @Html.DisplayForModel()
+</fieldset>
+<p>
+	<a id="linkEditar" href="#edit/@Model.Id">Editar</a>
+</p>
+<script type="text/javascript">
+	$('#linkEditar').click(function () {
+		var id = estractId($(this).attr("href"));
+		$('#popupForm').load('@Url.Action("Edit")?id=' + id);
+		return false;
+	});
+</script>

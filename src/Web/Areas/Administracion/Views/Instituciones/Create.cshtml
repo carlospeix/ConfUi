@@ -1,0 +1,61 @@
+﻿@model Centros.Model.Institucion
+
+@{
+    ViewBag.Title = "Creando";
+}
+
+<h2>Creando nuevo</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Datos de la institución</legend>
+
+        @Html.EditorForModel()
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Jurisdiccion)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Jurisdiccion", null, "Seleccione", new { data_val = "true", data_val_required = "Este campo debe ser completado" })
+            @Html.ValidationMessageFor(m => m.Jurisdiccion)
+        </div>
+
+        <br />
+        <div>
+            <input type="submit" value="Grabar" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+
+<script language="javascript" type="text/javascript">
+//    $(function () {
+//        $("#form1").validate({
+//            rules: {
+//                Jurisdiccion: {
+//                    required: true
+//                }
+//            },
+//            messages: {
+//                Jurisdiccion: {
+//                    required: "This field is required"
+//                }
+//            }
+//        });
+//    });
+
+//    jQuery.validator.unobtrusive.adapters.add("revisar", function (rule) {
+//        var message = rule.Message;
+//        return function (value, context) {
+//            if (!value || !value.length) {
+//                // return valid if value not specified - leave that to the 'required' validator
+//                return true;
+//            }
+//            
+//            return emailPattern.test(value);
+//        };
+//    });
+</script>

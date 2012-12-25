@@ -1,0 +1,14 @@
+﻿@model Centros.Model.Jurisdiccion
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Datos de la jurisdicción</legend>
+        @Html.EditorForModel()
+        <div>
+            <input type="submit" value="Grabar" />
+        </div>
+    </fieldset>
+}
+<script type="text/javascript">
+	wireAjaxForm();
+</script>

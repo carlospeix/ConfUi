@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Centros.Model.Centro>
+
+@{
+    ViewBag.Title = "Listado de centros";
+}
+
+<h2>Listado</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Horarios</th>
+        <th>Educador a cargo</th>
+        <th>Institución</th>
+        <th>Comandos</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Nombre</td>
+        <td>@item.Horario</td>
+        <td>@item.EducadorACargo</td>
+        <td>@item.Institucion</td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+</table>
+
