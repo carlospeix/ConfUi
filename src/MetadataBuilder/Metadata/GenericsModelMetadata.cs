@@ -23,7 +23,7 @@ namespace Tandil.MetadataBuilder.Metadata
 		public MemberInfo InitialSortMember { get; set; }
 
 	    public Action<object> InstanceValidator { get; set; }
-        //public Func<object, string> InstanceDescription { get; set; }
+        public Func<object, string> InstanceDescription { get; set; }
 
 	    public Func<Object> DomainAccessorAccessor()
 		{

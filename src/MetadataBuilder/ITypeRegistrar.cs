@@ -25,6 +25,6 @@ namespace Tandil.MetadataBuilder
 		//ITypeRegistrar<TModel> ListOrder<TProperty>(Expression<Func<TModel, TProperty>> expression, string order);
 
         ITypeRegistrar<TModel> InstanceValidator(Action<TModel> validator);
-        //ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function);
+        ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function);
     }
 }

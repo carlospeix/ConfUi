@@ -39,10 +39,10 @@ namespace Tandil.MetadataBuilder.Registrars
             Modifiers.Add(metadata => metadata.InstanceValidator = validator);
         }
 
-        //public void InstanceDescription(Func<TModel, string> function)
-        //{
-        //    Modifiers.Add(metadata => metadata.InstanceDescription = function);
-        //}
+        public void InstanceDescription(Func<object, string> function)
+        {
+            Modifiers.Add(metadata => metadata.InstanceDescription = function);
+        }
 
         private ICollection<Action<GenericsModelMetadata>> Modifiers
 		{

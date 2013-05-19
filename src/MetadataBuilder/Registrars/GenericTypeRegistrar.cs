@@ -76,11 +76,12 @@ namespace Tandil.MetadataBuilder.Registrars
             return this;
 	    }
 
-	    //public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
-		//{
-		//    Modifiers.Add(metadata => metadata.InstanceDescription = function);
-		//    return this;
-		//}
+        public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
+        {
+            // TODO: Trampa fea
+            _registrar.InstanceDescription(model => function((TModel)model));
+            return this;
+        }
 
 		#region (Comentado) Este codigo estaba en el proyecto MvcConf2011
 		//public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)

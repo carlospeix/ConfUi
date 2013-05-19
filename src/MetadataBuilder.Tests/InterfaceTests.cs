@@ -44,7 +44,7 @@ namespace MetadataBuilder.Tests
 			                       	{
 			                       		md.Id(m => m.Id);
 			                       		md.Description("Cliente");
-			                       		//md.InstanceDescription(m => m.LastName + ", " + m.FirstName);
+			                       		md.InstanceDescription(m => m.LastName + ", " + m.FirstName);
 			                       	});
 		}
 
