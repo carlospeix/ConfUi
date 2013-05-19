@@ -124,27 +124,27 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("FirstName", metadata.InitialSortMember.Name);
 		}
 
-        [Test]
-        public void InstanceDescriptionForTypeFluent()
-        {
-            _reg.ForType<Customer>().InstanceDescription(m => m.LastName + ", " + m.FirstName);
+		[Test]
+		public void InstanceDescriptionForTypeFluent()
+		{
+			_reg.ForType<Customer>().InstanceDescription(m => m.LastName + ", " + m.FirstName);
 
-            var metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
-            Assert.AreEqual("Peix, Carlos", metadata.InstanceDescription(new Customer { FirstName = "Carlos", LastName = "Peix"}));
-        }
+			var metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
+			Assert.AreEqual("Peix, Carlos", metadata.InstanceDescription(new Customer { FirstName = "Carlos", LastName = "Peix" }));
+		}
 
-        [Test]
-        public void InstanceValidationForTypeFluent()
-        {
-            var error = false;
-            _reg.ForType<Customer>().InstanceValidator(m => error = String.IsNullOrEmpty(m.LastName));
+		[Test]
+		public void InstanceValidationForTypeFluent()
+		{
+			var error = false;
+			_reg.ForType<Customer>().InstanceValidator(m => error = String.IsNullOrEmpty(m.LastName));
 
-            var metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
-            metadata.InstanceValidator(new Customer());
-            Assert.IsTrue(error);
-        }
+			var metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
+			metadata.InstanceValidator(new Customer());
+			Assert.IsTrue(error);
+		}
 
-        [Test]
+		[Test]
 		public void DomainAccessorMetadataForTypeFluent()
 		{
 			//_reg.DomainProviderAccessor(GetTestDomainProvider());

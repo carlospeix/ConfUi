@@ -69,19 +69,19 @@ namespace Tandil.MetadataBuilder.Registrars
 			return this;
 		}
 
-	    public ITypeRegistrar<TModel> InstanceValidator(Action<TModel> validator)
-	    {
-            // TODO: Trampa fea
-	        _registrar.InstanceValidator(model => validator((TModel)model));
-            return this;
-	    }
+		public ITypeRegistrar<TModel> InstanceValidator(Action<TModel> validator)
+		{
+			// TODO: Trampa fea
+			_registrar.InstanceValidator(model => validator((TModel)model));
+			return this;
+		}
 
-        public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
-        {
-            // TODO: Trampa fea
-            _registrar.InstanceDescription(model => function((TModel)model));
-            return this;
-        }
+		public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
+		{
+			// TODO: Trampa fea
+			_registrar.InstanceDescription(model => function((TModel)model));
+			return this;
+		}
 
 		#region (Comentado) Este codigo estaba en el proyecto MvcConf2011
 		//public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
