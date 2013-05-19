@@ -100,10 +100,10 @@ namespace MetadataBuilder.Tests
         public void TypeValidator()
         {
             _reg.
-                ForType<Customer>().Validator(ModelValidator);
+                ForType<Customer>().InstanceValidator(ModelValidator);
             var error = false;
             _reg.
-                ForType<Country>().Validator(m => error = String.IsNullOrEmpty(m.Name));
+                ForType<Country>().InstanceValidator(m => error = String.IsNullOrEmpty(m.Name));
         }
 
 	    private static void ModelValidator(Customer model)

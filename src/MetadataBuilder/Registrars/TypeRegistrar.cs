@@ -29,19 +29,24 @@ namespace Tandil.MetadataBuilder.Registrars
 			Modifiers.Add(metadata => metadata.Description = description);
 		}
 
-		//public void InstanceDescription(Func<TModel, string> function)
-		//{
-		//    Modifiers.Add(metadata => metadata.InstanceDescription = function);
-		//}
-
 		public void InitialSortMember(MemberInfo initialSortMember)
 		{
 			Modifiers.Add(metadata => metadata.InitialSortMember = initialSortMember);
 		}
 
-		private ICollection<Action<GenericsModelMetadata>> Modifiers
+        public void InstanceValidator(Action<object> validator)
+        {
+            Modifiers.Add(metadata => metadata.InstanceValidator = validator);
+        }
+
+        //public void InstanceDescription(Func<TModel, string> function)
+        //{
+        //    Modifiers.Add(metadata => metadata.InstanceDescription = function);
+        //}
+
+        private ICollection<Action<GenericsModelMetadata>> Modifiers
 		{
 			get { return ConfigurationHolder.MetadataMappings[ModelType].Modifiers; }
 		}
-	}
+    }
 }

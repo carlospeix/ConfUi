@@ -19,11 +19,13 @@ namespace Tandil.MetadataBuilder.Metadata
 		public MemberInfo IdMember { get; set; }
 		public Func<GenericsModelMetadata, string> SimpleDisplayTextCallback { get; set; }
 		public Type ReferenceType { get; set; }
-		//public Func<object, string> InstanceDescription { get; set; }
 		public bool Searchable { get; set; }
 		public MemberInfo InitialSortMember { get; set; }
 
-		public Func<Object> DomainAccessorAccessor()
+	    public Action<object> InstanceValidator { get; set; }
+        //public Func<object, string> InstanceDescription { get; set; }
+
+	    public Func<Object> DomainAccessorAccessor()
 		{
 			return () => null;
 		}

@@ -69,8 +69,11 @@ namespace Tandil.MetadataBuilder.Registrars
 			return this;
 		}
 
-	    public void Validator(Action<TModel> validator)
+	    public ITypeRegistrar<TModel> InstanceValidator(Action<TModel> validator)
 	    {
+            // TODO: Trampa fea
+	        _registrar.InstanceValidator(model => validator((TModel)model));
+            return this;
 	    }
 
 	    //public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
