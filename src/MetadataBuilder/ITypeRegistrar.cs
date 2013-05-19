@@ -24,5 +24,7 @@ namespace Tandil.MetadataBuilder
 		ITypeRegistrar<TModel> InitialSortMember<TProperty>(Expression<Func<TModel, TProperty>> expression);
 		//ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function);
 		//ITypeRegistrar<TModel> ListOrder<TProperty>(Expression<Func<TModel, TProperty>> expression, string order);
+
+        void Validator(Action<TModel> validator);
 	}
 }

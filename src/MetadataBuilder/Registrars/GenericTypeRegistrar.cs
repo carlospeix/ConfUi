@@ -69,7 +69,11 @@ namespace Tandil.MetadataBuilder.Registrars
 			return this;
 		}
 
-		//public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
+	    public void Validator(Action<TModel> validator)
+	    {
+	    }
+
+	    //public ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function)
 		//{
 		//    Modifiers.Add(metadata => metadata.InstanceDescription = function);
 		//    return this;

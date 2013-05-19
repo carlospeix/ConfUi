@@ -96,7 +96,21 @@ namespace MetadataBuilder.Tests
 					ForProperty(m => m.FirstLaborableDay).EnumDataType(typeof(DayOfWeek));
 		}
 
-		private static Func<Type, IDomainAccessor<object>> GetDomainAccessorAccessor()
+        [Test]
+        public void TypeValidator()
+        {
+            _reg.
+                ForType<Customer>().Validator(ModelValidator);
+            var error = false;
+            _reg.
+                ForType<Country>().Validator(m => error = String.IsNullOrEmpty(m.Name));
+        }
+
+	    private static void ModelValidator(Customer model)
+	    {
+	    }
+
+	    private static Func<Type, IDomainAccessor<object>> GetDomainAccessorAccessor()
 		{
 			return null;
 		}
