@@ -29,19 +29,24 @@ namespace Tandil.MetadataBuilder.Registrars
 			Modifiers.Add(metadata => metadata.Description = description);
 		}
 
+		public void ReadOnly(bool readOnly)
+		{
+			Modifiers.Add(metadata => metadata.IsReadOnly = readOnly);
+		}
+
 		public void InitialSortMember(MemberInfo initialSortMember)
 		{
 			Modifiers.Add(metadata => metadata.InitialSortMember = initialSortMember);
 		}
 
-		public void InstanceValidator(Action<object> validator)
-		{
-			Modifiers.Add(metadata => metadata.InstanceValidator = validator);
-		}
-
 		public void InstanceDescription(Func<object, string> function)
 		{
 			Modifiers.Add(metadata => metadata.InstanceDescription = function);
+		}
+
+		public void InstanceValidator(Func<object, object, string[]> function)
+		{
+			Modifiers.Add(metadata => metadata.SetInstanceValidator(function));
 		}
 
 		private ICollection<Action<GenericsModelMetadata>> Modifiers

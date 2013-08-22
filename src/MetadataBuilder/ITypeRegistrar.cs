@@ -21,10 +21,11 @@ namespace Tandil.MetadataBuilder
 		// Configuration
 		ITypeRegistrar<TModel> Id<TProperty>(Expression<Func<TModel, TProperty>> expression);
 		ITypeRegistrar<TModel> Description(string description);
+		ITypeRegistrar<TModel> ReadOnly(bool readOnly = true);
 		ITypeRegistrar<TModel> InitialSortMember<TProperty>(Expression<Func<TModel, TProperty>> expression);
 		//ITypeRegistrar<TModel> ListOrder<TProperty>(Expression<Func<TModel, TProperty>> expression, string order);
 
-        ITypeRegistrar<TModel> InstanceValidator(Action<TModel> validator);
-        ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function);
-    }
+		ITypeRegistrar<TModel> InstanceDescription(Func<TModel, string> function);
+		ITypeRegistrar<TModel> InstanceValidator(Func<TModel, object, string[]> function);
+	}
 }

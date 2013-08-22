@@ -63,16 +63,15 @@ namespace Tandil.MetadataBuilder.Registrars
 			return this;
 		}
 
-		public ITypeRegistrar<TModel> InitialSortMember<TProperty>(Expression<Func<TModel, TProperty>> expression)
+		public ITypeRegistrar<TModel> ReadOnly(bool readOnly = true)
 		{
-			_registrar.InitialSortMember(TypeExtensions.DecodeMemberAccessExpression(expression));
+			_registrar.ReadOnly(readOnly);
 			return this;
 		}
 
-		public ITypeRegistrar<TModel> InstanceValidator(Action<TModel> validator)
+		public ITypeRegistrar<TModel> InitialSortMember<TProperty>(Expression<Func<TModel, TProperty>> expression)
 		{
-			// TODO: Trampa fea
-			_registrar.InstanceValidator(model => validator((TModel)model));
+			_registrar.InitialSortMember(TypeExtensions.DecodeMemberAccessExpression(expression));
 			return this;
 		}
 
@@ -80,6 +79,13 @@ namespace Tandil.MetadataBuilder.Registrars
 		{
 			// TODO: Trampa fea
 			_registrar.InstanceDescription(model => function((TModel)model));
+			return this;
+		}
+
+		public ITypeRegistrar<TModel> InstanceValidator(Func<TModel, object, string[]> function)
+		{
+			// TODO: Trampa fea
+			_registrar.InstanceValidator((model, operation) => function((TModel)model, operation));
 			return this;
 		}
 

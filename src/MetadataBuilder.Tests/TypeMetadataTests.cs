@@ -134,14 +134,35 @@ namespace MetadataBuilder.Tests
 		}
 
 		[Test]
-		public void InstanceValidationForTypeFluent()
+		public void ReadOnlyForTypeFluent()
 		{
-			var error = false;
-			_reg.ForType<Customer>().InstanceValidator(m => error = String.IsNullOrEmpty(m.LastName));
+			_reg.ForType<Customer>();
 
 			var metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
-			metadata.InstanceValidator(new Customer());
-			Assert.IsTrue(error);
+			Assert.IsFalse(metadata.IsReadOnly);
+
+			_reg.ForType<Customer>().ReadOnly();
+
+			metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
+			Assert.IsTrue(metadata.IsReadOnly);
+		}
+
+		[Test]
+		public void InstanceValidatorForTypeFluent()
+		{
+			_reg.ForType<Customer>().InstanceValidator(ValidateCustomer);
+
+			var metadata = (GenericsModelMetadata)GetTypeMetadata(typeof(Customer));
+
+			var validationMessages = metadata.Validate(new Customer(), 'A');
+			Assert.AreEqual(2, validationMessages.Length);
+			Assert.AreEqual("Invalid code", validationMessages[0]);
+			Assert.AreEqual("Invalid description", validationMessages[1]);
+		}
+
+		private string[] ValidateCustomer(Customer c, object operation)
+		{
+			return new string[] { "Invalid code", "Invalid description" };
 		}
 
 		[Test]

@@ -9,14 +9,14 @@ namespace Tandil.MetadataBuilder.Metadata
 		internal GenericsModelMetadata(GenericsModelMetadataProvider provider, Func<object> modelAccessor, Type modelType)
 			: base(provider, null /* containerType */, modelAccessor, modelType, null /* propertyName */)
 		{
-			InstanceValidator = model => { };
+			_instanceValidator = (model, operation) => new string[] { };
 			InstanceDescription = model => model.ToString();
 		}
 
 		internal GenericsModelMetadata(GenericsModelMetadataProvider provider, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
 			: base(provider, containerType, modelAccessor, modelType, propertyName)
 		{
-			InstanceValidator = model => { };
+			_instanceValidator = (model, operation) => new string[] { };
 			InstanceDescription = model => model.ToString();
 		}
 
@@ -26,8 +26,17 @@ namespace Tandil.MetadataBuilder.Metadata
 		public bool Searchable { get; set; }
 		public MemberInfo InitialSortMember { get; set; }
 
-		public Action<object> InstanceValidator { get; set; }
 		public Func<object, string> InstanceDescription { get; set; }
+
+		private Func<object, object, string[]> _instanceValidator;
+		internal void SetInstanceValidator(Func<object, object, string[]> function)
+		{
+			_instanceValidator = function;
+		}
+		public Func<object, object, string[]> Validate
+		{
+			get { return _instanceValidator; }
+		}
 
 		public Func<object> DomainAccessorAccessor()
 		{

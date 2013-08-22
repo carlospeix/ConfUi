@@ -30,7 +30,7 @@ namespace WebGeneric.Config
 			                           		var providerType = typeof (IDomainAccessor<>).MakeGenericType(modelType);
 			                           		return (IDomainAccessor<object>) container.Resolve(providerType);
 			                           	}).
-			    DomainMutatorAccessor(modelType =>
+				DomainMutatorAccessor(modelType =>
 				                      	{
 				                      		var providerType = typeof (IDomainMutator<>).MakeGenericType(modelType);
 				                      		return (IDomainMutator<object>) container.Resolve(providerType);

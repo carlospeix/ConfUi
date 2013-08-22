@@ -70,15 +70,15 @@ namespace MetadataBuilder.Tests
 					Id(m => m.Id).
 					Description("Cliente").
 					ForProperty(m => m.FirstName, p =>
-					{
-						p.Description("Nombres");
-						p.DisplayName("Nombre");
-					}).
+											{
+												p.Description("Nombres");
+												p.DisplayName("Nombre");
+											}).
 					ForProperty(m => m.LastName, p =>
-					{
-						p.Description("Apellidos");
-						p.DisplayName("Apellido");
-					}).
+											{
+												p.Description("Apellidos");
+												p.DisplayName("Apellido");
+											}).
 				ForType<Provider>().
 					Id(m => m.Code).
 					Description("Producto");
@@ -96,21 +96,7 @@ namespace MetadataBuilder.Tests
 					ForProperty(m => m.FirstLaborableDay).EnumDataType(typeof(DayOfWeek));
 		}
 
-        [Test]
-        public void TypeValidator()
-        {
-            _reg.
-                ForType<Customer>().InstanceValidator(ModelValidator);
-            var error = false;
-            _reg.
-                ForType<Country>().InstanceValidator(m => error = String.IsNullOrEmpty(m.Name));
-        }
-
-	    private static void ModelValidator(Customer model)
-	    {
-	    }
-
-	    private static Func<Type, IDomainAccessor<object>> GetDomainAccessorAccessor()
+		private static Func<Type, IDomainAccessor<object>> GetDomainAccessorAccessor()
 		{
 			return null;
 		}

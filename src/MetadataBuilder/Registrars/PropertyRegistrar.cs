@@ -181,7 +181,7 @@ namespace Tandil.MetadataBuilder.Registrars
 		public void ScaffoldColumn(bool scaffoldColumn)
 		{
 			// Same behaviour as DataAnnotationsModelMetadataProvider
-			Modifiers.Add(metadata => metadata.ShowForEdit = metadata.ShowForEdit = scaffoldColumn);
+			Modifiers.Add(metadata => metadata.ShowForEdit = scaffoldColumn);
 		}
 		#endregion
 
