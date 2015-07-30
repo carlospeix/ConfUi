@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Security;
 
 namespace Centros.Web.Models
@@ -217,7 +216,7 @@ namespace Centros.Web.Models
     }
 
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public sealed class ValidatePasswordLengthAttribute : ValidationAttribute, IClientValidatable
+	public sealed class ValidatePasswordLengthAttribute : ValidationAttribute, System.Web.Mvc.IClientValidatable
     {
         private const string _defaultErrorMessage = "'{0}' must be at least {1} characters long.";
         private readonly int _minCharacters = Membership.Provider.MinRequiredPasswordLength;
@@ -239,10 +238,10 @@ namespace Centros.Web.Models
             return (valueAsString != null && valueAsString.Length >= _minCharacters);
         }
 
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+		public IEnumerable<System.Web.Mvc.ModelClientValidationRule> GetClientValidationRules(System.Web.Mvc.ModelMetadata metadata, System.Web.Mvc.ControllerContext context)
         {
             return new[]{
-                new ModelClientValidationStringLengthRule(FormatErrorMessage(metadata.GetDisplayName()), _minCharacters, int.MaxValue)
+                new System.Web.Mvc.ModelClientValidationStringLengthRule(FormatErrorMessage(metadata.GetDisplayName()), _minCharacters, int.MaxValue)
             };
         }
     }

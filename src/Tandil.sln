@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataBuilder", "Metadata
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataBuilder.Tests", "MetadataBuilder.Tests\MetadataBuilder.Tests.csproj", "{B6277C7E-9D7A-4A0A-9434-CEFE09D10A7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataExtensions", "MetadataExtensions\MetadataExtensions.csproj", "{2CB992E9-55C7-4329-96EA-400A014EB04D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{B6277C7E-9D7A-4A0A-9434-CEFE09D10A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6277C7E-9D7A-4A0A-9434-CEFE09D10A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6277C7E-9D7A-4A0A-9434-CEFE09D10A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB992E9-55C7-4329-96EA-400A014EB04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB992E9-55C7-4329-96EA-400A014EB04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB992E9-55C7-4329-96EA-400A014EB04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB992E9-55C7-4329-96EA-400A014EB04D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
