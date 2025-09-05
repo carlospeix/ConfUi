@@ -36,6 +36,8 @@ namespace WebGeneric.Config
 				                      		return (IDomainMutator<object>) container.Resolve(providerType);
 				                      	});
 
+			reg.ForType<Entity>();
+			
 			reg.ForType<Centro>();
 			reg.ForType<Educador>();
 			reg.ForType<Horario>();

@@ -6,12 +6,21 @@
         <th>Comandos</th>
     </tr>
 	@foreach (var item in Model) {
-	var md = (GenericsModelMetadata)ViewData.ModelMetadata;
+		var itemMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, item.GetType());
+		var md = itemMetadata as GenericsModelMetadata;
+
 	<tr>
-		<td>@md.InstanceDescription(item)</td>
+		@if (md != null)
+		{
+			@md.InstanceDescription(item)
+		}
+		else
+		{
+			@item.ToString()
+		}
 		<td item-id="@item.Id">
-			<a class="linkEdit" href="#edit">Editar</a> | 
-			<a class="linkDetails" href="#details">Detalles</a> | 
+			<a class="linkEdit" href="#edit">Editar</a> |
+			<a class="linkDetails" href="#details">Detalles</a> |
 			<a class="linkDelete" href="#delete">Borrar</a>
 		</td>
 	</tr>

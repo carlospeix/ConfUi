@@ -1,20 +1,20 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tandil.MetadataBuilder;
 
 namespace MetadataBuilder.Tests
 {
-	[TestFixture]
+	[TestClass]
 	public class PropertyValidatorsTests : MetadataTests
 	{
 		IModelRegistrar _reg;
 
-		[SetUp]
+		[TestInitialize]
 		public void SetUp()
 		{
 			_reg = BuildRegistration();
 		}
 
-		[Test]
+		[TestMethod]
 		public void UnmodifiedMetadataForProperty()
 		{
 			//_reg.ForType<Customer>().ForProperty(m => m.FirstName, md =>

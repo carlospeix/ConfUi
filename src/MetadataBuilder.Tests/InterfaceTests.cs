@@ -1,27 +1,27 @@
-﻿using System;
-using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Tandil.MetadataBuilder;
 
 namespace MetadataBuilder.Tests
 {
-	[TestFixture, Ignore("Definicion de interfaces, no tiene codigo ejecutable")]
+	[TestClass, Ignore("Definicion de interfaces, no tiene codigo ejecutable")]
 	public class InterfaceTests
 	{
 		IModelRegistrar _reg;
 
-		[SetUp]
+		[TestInitialize]
 		public void SetUp()
 		{
 			_reg = BuildRegistration();
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataGlobalConfig()
 		{
 			_reg.ModelNamespacePattern("MvcGenerics.Tests");
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataForTypeFluent()
 		{
 			_reg.ForType<Customer>().
@@ -29,7 +29,7 @@ namespace MetadataBuilder.Tests
 				Description("Cliente");
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataForTypeLambda()
 		{
 			_reg.
@@ -37,7 +37,7 @@ namespace MetadataBuilder.Tests
 				ForType<Provider>(md => md.Id(m => m.Code).Description("Proveedor"));
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataForTypeNestedClosure()
 		{
 			_reg.ForType<Customer>(md =>
@@ -48,7 +48,7 @@ namespace MetadataBuilder.Tests
 			                       	});
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataCheckTypes()
 		{
 			Assert.AreEqual(typeof(Customer), _reg.ForType<Customer>().ModelType);
@@ -56,13 +56,13 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual(typeof(Int32), _reg.ForType<Customer>().ForProperty(m => m.Id).PropertyType);
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataForPropertyOnType()
 		{
 			_reg.ForType<Customer>().ForProperty(m => m.FirstName).DisplayName("Nombre");
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataForPropertyOnTypeNestedClosure()
 		{
 			_reg.
@@ -84,7 +84,7 @@ namespace MetadataBuilder.Tests
 					Description("Producto");
 		}
 
-		[Test]
+		[TestMethod]
 		public void DomainAccessor()
 		{
 			_reg.DomainAccessorAccessor(GetDomainAccessorAccessor());

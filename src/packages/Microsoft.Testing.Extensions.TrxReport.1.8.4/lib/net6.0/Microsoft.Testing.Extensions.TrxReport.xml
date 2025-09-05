@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Testing.Extensions.TrxReport</name>
+    </assembly>
+    <members>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.ToolName">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Testing.Extensions.TrxReport.TestingPlatformBuilderHook">
+            <summary>
+            This class is used by Microsoft.Testing.Platform.MSBuild to hook into the Testing Platform Builder to add TrxReport support.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.TestingPlatformBuilderHook.AddExtensions(Microsoft.Testing.Platform.Builder.ITestApplicationBuilder,System.String[])">
+            <summary>
+            Adds TrxReport support to the Testing Platform Builder.
+            </summary>
+            <param name="testApplicationBuilder">The test application builder.</param>
+            <param name="_">The command line arguments.</param>
+        </member>
+        <member name="T:Microsoft.Testing.Extensions.TrxReportExtensions">
+            <summary>
+            Provides extension methods for adding TRX report generation to a test application.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReportExtensions.AddTrxReportProvider(Microsoft.Testing.Platform.Builder.ITestApplicationBuilder)">
+            <summary>
+            Adds TRX report generation to a test application.
+            </summary>
+            <param name="builder">The test application builder.</param>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.InvalidTestApplicationBuilderType">
+            <summary>TRX report generator only works with builders of type 'Microsoft.Testing.Platform.Builder.TestApplicationBuilder'</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolBaselineFileOptionDescription">
+            <summary>The baseline TRX file</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolBothFilesMustBeSpecified">
+            <summary>'--{0}' and '--{1}' must both be specified</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolDescription">
+            <summary>This tool allows to compare and highlights differences between 2 TRX reports</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolDisplayName">
+            <summary>TRX comparer tool</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolOptionExpectsSingleArgument">
+            <summary>'--{0}' expects a single trx file path as argument</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolOtherFileOptionDescription">
+            <summary>The TRX file to compare with the baseline</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxFileExistsAndWillBeOverwritten">
+            <summary>Warning: Trx file '{0}' already exists and will be overwritten.</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportArtifactDescription">
+            <summary>Test session</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportArtifactDisplayName">
+            <summary>TRX Report</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameExtensionIsNotTrx">
+            <summary>'--report-trx-filename' file name argument must end with '.trx' (e.g. --report-trx-filename myreport.trx)</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameOptionDescription">
+            <summary>The name of the generated TRX report</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameRequiresTrxReport">
+            <summary>'--report-trx-filename' requires '--report-trx' to be enabled</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameShouldNotContainPath">
+            <summary>file name argument must not contain path (e.g. --report-trx-filename myreport.trx)</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFrameworkDoesNotSupportTrxReportCapability">
+            <summary>The test framework '{0}' with UID '{1}' does not support the 'ITrxReportCapability' leading to missing or incomplete TRX reports</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorBeforeTestHostProcessStartAsyncNotCalled">
+            <summary>Method 'BeforeTestHostProcessStartAsync' must be called before 'OnTestHostProcessStartedAsync'</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorDescription">
+            <summary>Produce a TRX report for the current test session</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorDisplayName">
+            <summary>TRX report generator</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorMissingTrxNamedPipeEnvironmentVariable">
+            <summary>Required environment variable '{0}' is missing for TRX report generator</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportIsNotValidForDiscovery">
+            <summary>'--report-trx' cannot be enabled when using '--list-tests'</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportOptionDescription">
+            <summary>Enable generating TRX report</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.UnsupportedRequestTypeErrorMessage">
+            <summary>Requests of type '{0}' is not supported</summary>
+        </member>
+    </members>
+</doc>

@@ -2,20 +2,20 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using NUnit.Framework;
 using Tandil.MetadataBuilder;
 using Tandil.MetadataBuilder.Metadata;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MetadataBuilder.Tests
 {
-	[TestFixture]
+	[TestClass]
 	public class MetadataProviderTest
 	{
 		private DataAnnotationsModelMetadataProvider _damp;
 		private GenericsModelMetadataProvider _gmp;
 		private IModelRegistrar _reg;
 
-		[SetUp]
+		[TestInitialize]
 		public void SetUp()
 		{
 			_damp = new DataAnnotationsModelMetadataProvider();
@@ -23,13 +23,13 @@ namespace MetadataBuilder.Tests
 			_reg = ConfigurationHolder.GetRootRegistrar();
 		}
 
-		[TearDown]
+		[TestCleanup]
 		public void TearDown()
 		{
 			ConfigurationHolder.Reset();
 		}
 
-		[Test]
+		[TestMethod]
 		public void DetailedUnmodifiedMetadataTest()
 		{
 			// Arrange
@@ -42,7 +42,7 @@ namespace MetadataBuilder.Tests
 			CompareMetadata(metadataDamp, metadataGmp);
 		}
 
-		[Test]
+		[TestMethod]
 		public void DetailedUnmodifiedButConfiguredMetadataTest()
 		{
 			// Arrange

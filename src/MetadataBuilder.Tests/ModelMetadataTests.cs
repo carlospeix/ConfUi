@@ -1,20 +1,20 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tandil.MetadataBuilder;
 
 namespace MetadataBuilder.Tests
 {
-	[TestFixture]
+	[TestClass]
 	public class ModelMetadataTests : MetadataTests
 	{
 		IModelRegistrar _reg;
 
-		[SetUp]
+		[TestInitialize]
 		public void SetUp()
 		{
 			_reg = BuildRegistration();
 		}
 
-		[Test]
+		[TestMethod]
 		public void ModelNamespacePattern()
 		{
 			_reg.ModelNamespacePattern("MvcGenerics.Tests.{0}, MvcGenerics.Tests");

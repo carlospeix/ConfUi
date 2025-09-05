@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Testing.Extensions.TrxReport</name>
+    </assembly>
+    <members>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.ToolTrxCompareFactory.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGeneratorCommandLine.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.ToolName">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareToolCommandLine.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxCompareTool.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportGenerator.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportEngine.BuildReservedFileNameRegex">
+            <remarks>
+            Pattern explanation:<br/>
+            <code>
+            ○ Match if at the beginning of the string.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match with 7 alternative expressions.<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Cc].<br/>
+                        ○ Match a character in the set [Oo].<br/>
+                        ○ Match a character in the set [Nn].<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Pp].<br/>
+                        ○ Match a character in the set [Rr].<br/>
+                        ○ Match a character in the set [Nn].<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Aa].<br/>
+                        ○ Match a character in the set [Uu].<br/>
+                        ○ Match a character in the set [Xx].<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Nn].<br/>
+                        ○ Match a character in the set [Uu].<br/>
+                        ○ Match a character in the set [Ll].<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Cc].<br/>
+                        ○ Match a character in the set [Oo].<br/>
+                        ○ Match a character in the set [Mm].<br/>
+                        ○ Match a character in the set [1-9].<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Ll].<br/>
+                        ○ Match a character in the set [Pp].<br/>
+                        ○ Match a character in the set [Tt].<br/>
+                        ○ Match a character in the set [1-9].<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [Cc].<br/>
+                        ○ Match a character in the set [Ll].<br/>
+                        ○ Match a character in the set [Oo].<br/>
+                        ○ Match a character in the set [Cc].<br/>
+                        ○ Match a character in the set [Kk\u212A].<br/>
+                        ○ Match '$'.<br/>
+            ○ Optional (greedy).<br/>
+                ○ 2nd capture group.<br/>
+                    ○ Match '.'.<br/>
+                    ○ Match a character other than '\n' greedily any number of times.<br/>
+            ○ Match if at the end of the string or if before an ending newline.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxReportEngine.BuildInvalidXmlCharReplace">
+            <remarks>
+            Pattern explanation:<br/>
+            <code>
+            ○ Match a character in the set [^\t\n\r -\uD7FF\uE000-\uFFFD].<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.Abstractions.TrxTestApplicationLifecycleCallbacks.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Testing.Extensions.TrxReport.TestingPlatformBuilderHook">
+            <summary>
+            This class is used by Microsoft.Testing.Platform.MSBuild to hook into the Testing Platform Builder to add TrxReport support.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReport.TestingPlatformBuilderHook.AddExtensions(Microsoft.Testing.Platform.Builder.ITestApplicationBuilder,System.String[])">
+            <summary>
+            Adds TrxReport support to the Testing Platform Builder.
+            </summary>
+            <param name="testApplicationBuilder">The test application builder.</param>
+            <param name="_">The command line arguments.</param>
+        </member>
+        <member name="T:Microsoft.Testing.Extensions.TrxReportExtensions">
+            <summary>
+            Provides extension methods for adding TRX report generation to a test application.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.TrxReportExtensions.AddTrxReportProvider(Microsoft.Testing.Platform.Builder.ITestApplicationBuilder)">
+            <summary>
+            Adds TRX report generation to a test application.
+            </summary>
+            <param name="builder">The test application builder.</param>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.InvalidTestApplicationBuilderType">
+            <summary>TRX report generator only works with builders of type 'Microsoft.Testing.Platform.Builder.TestApplicationBuilder'</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolBaselineFileOptionDescription">
+            <summary>The baseline TRX file</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolBothFilesMustBeSpecified">
+            <summary>'--{0}' and '--{1}' must both be specified</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolDescription">
+            <summary>This tool allows to compare and highlights differences between 2 TRX reports</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolDisplayName">
+            <summary>TRX comparer tool</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolOptionExpectsSingleArgument">
+            <summary>'--{0}' expects a single trx file path as argument</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxComparerToolOtherFileOptionDescription">
+            <summary>The TRX file to compare with the baseline</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxFileExistsAndWillBeOverwritten">
+            <summary>Warning: Trx file '{0}' already exists and will be overwritten.</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportArtifactDescription">
+            <summary>Test session</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportArtifactDisplayName">
+            <summary>TRX Report</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameExtensionIsNotTrx">
+            <summary>'--report-trx-filename' file name argument must end with '.trx' (e.g. --report-trx-filename myreport.trx)</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameOptionDescription">
+            <summary>The name of the generated TRX report</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameRequiresTrxReport">
+            <summary>'--report-trx-filename' requires '--report-trx' to be enabled</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFileNameShouldNotContainPath">
+            <summary>file name argument must not contain path (e.g. --report-trx-filename myreport.trx)</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportFrameworkDoesNotSupportTrxReportCapability">
+            <summary>The test framework '{0}' with UID '{1}' does not support the 'ITrxReportCapability' leading to missing or incomplete TRX reports</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorBeforeTestHostProcessStartAsyncNotCalled">
+            <summary>Method 'BeforeTestHostProcessStartAsync' must be called before 'OnTestHostProcessStartedAsync'</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorDescription">
+            <summary>Produce a TRX report for the current test session</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorDisplayName">
+            <summary>TRX report generator</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportGeneratorMissingTrxNamedPipeEnvironmentVariable">
+            <summary>Required environment variable '{0}' is missing for TRX report generator</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportIsNotValidForDiscovery">
+            <summary>'--report-trx' cannot be enabled when using '--list-tests'</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.TrxReportOptionDescription">
+            <summary>Enable generating TRX report</summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.TestReports.Resources.ExtensionResources.UnsupportedRequestTypeErrorMessage">
+            <summary>Requests of type '{0}' is not supported</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the BuildReservedFileNameRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildReservedFileNameRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the BuildInvalidXmlCharReplace method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.BuildInvalidXmlCharReplace_1.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32)">
+            <summary>Pushes 2 values onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPop(System.Int32[],System.Int32@,System.Int32@,System.Int32@)">
+            <summary>Pops 2 values from the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32,System.Int32)">
+            <summary>Pushes 3 values onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32)">
+            <summary>Pushes 1 value onto the backtracking stack.</summary>
+        </member>
+    </members>
+</doc>

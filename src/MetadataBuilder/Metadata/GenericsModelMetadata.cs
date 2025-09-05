@@ -6,6 +6,12 @@ namespace Tandil.MetadataBuilder.Metadata
 {
 	public class GenericsModelMetadata : ModelMetadata
 	{
+
+		//public GenericsModelMetadata(ModelMetadataProvider provider, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName) 
+		//	: base(provider, containerType, modelAccessor, modelType, propertyName)
+		//{
+		//}
+
 		internal GenericsModelMetadata(GenericsModelMetadataProvider provider, Func<object> modelAccessor, Type modelType)
 			: base(provider, null /* containerType */, modelAccessor, modelType, null /* propertyName */)
 		{

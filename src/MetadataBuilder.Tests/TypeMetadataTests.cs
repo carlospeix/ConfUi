@@ -1,22 +1,22 @@
-﻿using System;
-using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Tandil.MetadataBuilder;
 using Tandil.MetadataBuilder.Metadata;
 
 namespace MetadataBuilder.Tests
 {
-	[TestFixture]
+	[TestClass]
 	public class TypeMetadataTests : MetadataTests
 	{
 		IModelRegistrar _reg;
 
-		[SetUp]
+		[TestInitialize]
 		public void SetUp()
 		{
 			_reg = BuildRegistration();
 		}
 
-		[Test]
+		[TestMethod]
 		public void MetadataForTypeFluent()
 		{
 			_reg.ForType<Customer>();
@@ -25,7 +25,7 @@ namespace MetadataBuilder.Tests
 			Assert.IsNull(metadata.Description);
 		}
 
-		[Test]
+		[TestMethod]
 		public void ModifiedMetadataForTypeFluent()
 		{
 			_reg.ForType<Customer>().Description("Cliente (aprobado)");
@@ -34,7 +34,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Cliente (aprobado)", metadata.Description);
 		}
 
-		[Test]
+		[TestMethod]
 		public void ModifiedMetadataForTypeLambda()
 		{
 			_reg.ForType<Customer>(m => m.Description("Cliente (aprobado)"));
@@ -44,7 +44,7 @@ namespace MetadataBuilder.Tests
 		}
 
 
-		[Test]
+		[TestMethod]
 		public void TwoModelsMetadataForTypeFluent()
 		{
 			_reg.
@@ -55,7 +55,7 @@ namespace MetadataBuilder.Tests
 			Assert.IsNull(GetTypeMetadata(typeof(Provider)).Description);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TwoModelsModifiedMetadataForTypeFluent()
 		{
 			_reg.
@@ -66,7 +66,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Proveedor (aprobado)", GetTypeMetadata(typeof(Provider)).Description);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TwoModelsModifiedMetadataForTypeLambda()
 		{
 			_reg.
@@ -77,7 +77,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Proveedor (aprobado)", GetTypeMetadata(typeof(Provider)).Description);
 		}
 
-		[Test]
+		[TestMethod]
 		public void TwoModelsModifiedMetadataForTypeNestedClosure()
 		{
 			_reg.
@@ -96,7 +96,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Proveedor (aprobado)", GetTypeMetadata(typeof(Provider)).Description);
 		}
 
-		[Test]
+		[TestMethod]
 		public void IdPropertyMetadataForTypeFluent()
 		{
 			_reg.ForType<Customer>().Id(m => m.Id);
@@ -106,7 +106,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual(idProp, metadata.IdMember);
 		}
 
-		[Test]
+		[TestMethod]
 		public void SearchablePropertyMetadataForTypeFluent()
 		{
 			_reg.ForType<Customer>().ForProperty(m => m.FirstName).Searchable(true);
@@ -115,7 +115,7 @@ namespace MetadataBuilder.Tests
 			Assert.IsTrue(metadata.Searchable);
 		}
 
-		[Test]
+		[TestMethod]
 		public void InitialSortMemberForTypeFluent()
 		{
 			_reg.ForType<Customer>().InitialSortMember(m => m.FirstName);
@@ -124,7 +124,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("FirstName", metadata.InitialSortMember.Name);
 		}
 
-		[Test]
+		[TestMethod]
 		public void InstanceDescriptionForTypeFluent()
 		{
 			_reg.ForType<Customer>().InstanceDescription(m => m.LastName + ", " + m.FirstName);
@@ -133,7 +133,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Peix, Carlos", metadata.InstanceDescription(new Customer { FirstName = "Carlos", LastName = "Peix" }));
 		}
 
-		[Test]
+		[TestMethod]
 		public void ReadOnlyForTypeFluent()
 		{
 			_reg.ForType<Customer>();
@@ -147,7 +147,7 @@ namespace MetadataBuilder.Tests
 			Assert.IsTrue(metadata.IsReadOnly);
 		}
 
-		[Test]
+		[TestMethod]
 		public void InstanceValidatorForTypeFluent()
 		{
 			_reg.ForType<Customer>().InstanceValidator(ValidateCustomer);
@@ -165,7 +165,7 @@ namespace MetadataBuilder.Tests
 			return new string[] { "Invalid code", "Invalid description" };
 		}
 
-		[Test]
+		[TestMethod]
 		public void DomainAccessorMetadataForTypeFluent()
 		{
 			//_reg.DomainProviderAccessor(GetTestDomainProvider());

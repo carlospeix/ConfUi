@@ -1,22 +1,22 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Web.Mvc;
-using NUnit.Framework;
 using Tandil.MetadataBuilder;
 
 namespace MetadataBuilder.Tests
 {
-	[TestFixture]
+	[TestClass]
 	public class PropertyMetadataTests : MetadataTests
 	{
 		IModelRegistrar _reg;
 
-		[SetUp]
+		[TestInitialize]
 		public void SetUp()
 		{
 			_reg = BuildRegistration();
 		}
 
-		[Test]
+		[TestMethod]
 		public void UnmodifiedMetadataForProperty()
 		{
 			_reg.ForType<Customer>();
@@ -48,7 +48,7 @@ namespace MetadataBuilder.Tests
 			Assert.IsNull(metadata.Watermark);
 		}
 
-		[Test]
+		[TestMethod]
 		public void AllModifiedMetadataForProperty()
 		{
 			_reg.ForType<Customer>().ForProperty(m => m.FirstName, md =>
@@ -95,7 +95,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Watermark", metadata.Watermark);
 		}
 
-		[Test]
+		[TestMethod]
 		public void ModifiedMetadataForPropertyFluent()
 		{
 			_reg.ForType<Customer>().
@@ -106,7 +106,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Apellido", GetPropertyMetadata(typeof(Customer), "LastName").GetDisplayName());
 		}
 
-		[Test]
+		[TestMethod]
 		public void ModifiedMetadataForPropertyLambda()
 		{
 			_reg.ForType<Customer>().
@@ -117,7 +117,7 @@ namespace MetadataBuilder.Tests
 			Assert.AreEqual("Apellido", GetPropertyMetadata(typeof(Customer), "LastName").GetDisplayName());
 		}
 
-		//[Test]
+		//[TestMethod]
 		//public void MetadataForPropertyOnTypeNestedClosure()
 		//{
 		//    _reg.
