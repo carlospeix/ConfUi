@@ -1,5 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System;
 using System.Diagnostics;
 
 namespace WebGeneric.Config
@@ -8,30 +9,30 @@ namespace WebGeneric.Config
     {
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            GetTimer(filterContext, "action").Start();
+            GetTimer(filterContext.HttpContext, "action").Start();
         }
 
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            GetTimer(filterContext, "action").Stop();
+            GetTimer(filterContext.HttpContext, "action").Stop();
         }
 
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            GetTimer(filterContext, "render").Start();
+            GetTimer(filterContext.HttpContext, "render").Start();
         }
 
         public void OnResultExecuted(ResultExecutedContext filterContext)
         {
-            GetTimer(filterContext, "render").Stop();
+            GetTimer(filterContext.HttpContext, "render").Stop();
 
             RenderResults(filterContext);
         }
 
         private void RenderResults(ResultExecutedContext filterContext)
         {
-            var renderTimer = GetTimer(filterContext, "render");
-            var actionTimer = GetTimer(filterContext, "action");
+            var renderTimer = GetTimer(filterContext.HttpContext, "render");
+            var actionTimer = GetTimer(filterContext.HttpContext, "action");
 
             var response = filterContext.HttpContext.Response;
 
@@ -49,15 +50,15 @@ namespace WebGeneric.Config
             }
         }
 
-        private Stopwatch GetTimer(ControllerContext context, string name)
+        private Stopwatch GetTimer(HttpContext context, string name)
         {
             string key = "__timer__" + name;
 
-            if (context.HttpContext.Items.Contains(key))
-                return (Stopwatch)context.HttpContext.Items[key];
+            if (context.Items.ContainsKey(key))
+                return (Stopwatch)context.Items[key];
 
             var result = new Stopwatch();
-            context.HttpContext.Items[key] = result;
+            context.Items[key] = result;
             return result;
         }
     }

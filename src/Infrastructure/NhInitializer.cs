@@ -10,9 +10,7 @@ using ConfOrm.Shop.Inflectors;
 using ConfOrm.Shop.Packs;
 using ConfOrm.Shop.InflectorNaming;
 using NHibernate;
-using NHibernate.ByteCode.Castle;
 using NHibernate.Cfg;
-using NHibernate.Cfg.Loquacious;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Dialect;
 using NHibernate.Driver;
@@ -20,6 +18,7 @@ using NHibernate.Tool.hbm2ddl;
 
 using Centros.Model;
 using NHibernate.Context;
+using NHibernate.Bytecode;
 
 namespace Centros.Infrastructure
 {
@@ -62,7 +61,7 @@ namespace Centros.Infrastructure
 		{
             _configure = new Configuration();
             _configure.SessionFactoryName("Centros");
-            _configure.Proxy(p => p.ProxyFactoryFactory<ProxyFactoryFactory>());
+            _configure.Proxy(p => p.ProxyFactoryFactory<IProxyFactoryFactory>());
             _configure.DataBaseIntegration(db =>
             {
                 db.Dialect<MsSql2008Dialect>();

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "WebGenerics": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:56510;http://localhost:56511"
+    }
+  }
+}

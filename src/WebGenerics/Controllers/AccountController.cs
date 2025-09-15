@@ -1,29 +1,26 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
-using System.Web.Security;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebGeneric.Models;
 
 namespace WebGeneric.Controllers
 {
     public class AccountController : Controller
-    {
+	{
 
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
 
-        protected override void Initialize(RequestContext requestContext)
-        {
-            if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
-            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+		
+		public AccountController()
+		{
+			if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
+			if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+		}
+		
+		// **************************************
+		// URL: /Account/LogOn
+		// **************************************
 
-            base.Initialize(requestContext);
-        }
-
-        // **************************************
-        // URL: /Account/LogOn
-        // **************************************
-
-        public ActionResult LogOn()
+		public ActionResult LogOn()
         {
             return View();
         }

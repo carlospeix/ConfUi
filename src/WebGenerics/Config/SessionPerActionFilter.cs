@@ -1,4 +1,4 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using NHibernate;
 using NHibernate.Context;
 
@@ -35,14 +35,14 @@ namespace WebGeneric.Config
 
             try
             {
-                if (filterContext.Controller.ViewData.ModelState.IsValid)
+                if (filterContext.ModelState.IsValid)
                 {
                     session.Flush();
-                    session.Transaction.Commit();
+                    session.GetCurrentTransaction().Commit();
                 }
                 else
                 {
-                    session.Transaction.Rollback();
+                    session.GetCurrentTransaction().Rollback();
                 }
             }
             finally

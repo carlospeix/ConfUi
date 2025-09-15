@@ -1,13 +1,10 @@
-﻿using System.Web.Mvc;
-using System.Reflection;
-using NHibernate;
+﻿using NHibernate;
 using Castle.Windsor;
 using Castle.MicroKernel.Registration;
 using Centros.Infrastructure;
-using Centros.Infrastructure.Queries;
 using Centros.Infrastructure.Repositories;
-using Centros.Model.Queries;
 using Centros.Model.Repositories;
+using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace WebGeneric.Config
 {
@@ -22,7 +19,7 @@ namespace WebGeneric.Config
 			InitializeNHibernate();
 			RegisterRepositories();
 			RegisterQueries();
-			RegisterGlobalFilters(GlobalFilters.Filters);
+			//RegisterGlobalFilters(GlobalFilters.Filters);
 
 			MetadataBuilderConfig.Start(_container);
 		}
@@ -49,7 +46,7 @@ namespace WebGeneric.Config
 					.ImplementedBy<WindsorControllerFactory>()
 					.LifeStyle.Singleton);
 
-			ControllerBuilder.Current.SetControllerFactory(_container.Resolve<IControllerFactory>());
+			//System.Web.Mvc.ControllerBuilder.Current.SetControllerFactory(_container.Resolve<IControllerFactory>());
 		}
 
 		private static void InitializeNHibernate()
@@ -80,17 +77,17 @@ namespace WebGeneric.Config
 
 		private static void RegisterQueries()
 		{
-			_container.Register(AllTypes
-				.FromAssembly(Assembly.GetAssembly(typeof(Query<>)))
-				.BasedOn(typeof(IQuery<>))
-				.WithService.AllInterfaces());
+			//_container.Register(AllTypes
+			//	.FromAssembly(Assembly.GetAssembly(typeof(Query<>)))
+			//	.BasedOn(typeof(IQuery<>))
+			//	.WithService.AllInterfaces());
 		}
 
-		private static void RegisterGlobalFilters(GlobalFilterCollection filters)
-		{
-			//filters.Add(new RequestTimingFilter(), 1);
-			filters.Add(new HandleErrorAttribute(), 2);
-			filters.Add(_container.Resolve<SessionPerActionFilter>(), 3);
-		}
+		//private static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		//{
+		//	//filters.Add(new RequestTimingFilter(), 1);
+		//	//filters.Add(new HandleErrorAttribute(), 2);
+		//	filters.Add(_container.Resolve<SessionPerActionFilter>(), 3);
+		//}
 	}
 }

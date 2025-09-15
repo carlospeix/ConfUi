@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Web.Mvc;
 using Castle.Windsor;
-using System.Web.Routing;
-using Castle.MicroKernel.Registration;
-using System.Reflection;
 using Tandil.MetadataBuilder;
 using WebGeneric.Controllers;
+using Microsoft.AspNetCore.Mvc.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebGeneric.Config
 {
-    // http://blog.andreloker.de/post/2009/03/28/ASPNET-MVC-with-Windsor-programmatic-controller-registration.aspx
-    public class WindsorControllerFactory : DefaultControllerFactory
+	// http://blog.andreloker.de/post/2009/03/28/ASPNET-MVC-with-Windsor-programmatic-controller-registration.aspx
+	public class WindsorControllerFactory : IControllerFactory
     {
         readonly IWindsorContainer _container;
 
@@ -19,14 +17,6 @@ namespace WebGeneric.Config
             _container = container;
 
             RegisterControllers();
-        }
-
-        protected override Type GetControllerType(RequestContext requestContext, string controllerName)
-        {
-            if (controllerName.Equals("Generic"))
-                return BuildClosedGenericControllerType(requestContext.RouteData.Values["type"]);
-
-            return base.GetControllerType(requestContext, controllerName);
         }
 
 		private static Type BuildClosedGenericControllerType(object typeParam)
@@ -38,25 +28,25 @@ namespace WebGeneric.Config
 			return typeof(GenericController<>).MakeGenericType(targetType);
 		}
 
-        protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
-        {
-            if (controllerType == null)
-                return base.GetControllerInstance(requestContext, controllerType);
+		private void RegisterControllers()
+		{
+			//_container.Register(
+			//	AllTypes.FromAssembly(Assembly.GetExecutingAssembly()).
+			//	BasedOn<System.Web.Mvc.IController>().
+			//	Configure(c => c.LifeStyle.Transient));
+		}
 
-            return _container.Resolve(controllerType) as IController;
-        }
+		public object CreateController(ControllerContext context)
+		{
+			if (context.ActionDescriptor.ControllerName.Equals("Generic"))
+				return BuildClosedGenericControllerType(context.ActionDescriptor.ControllerTypeInfo.AsType());
 
-        public override void ReleaseController(IController controller)
-        {
-            _container.Release(controller);
-        }
+			return Activator.CreateInstance(context.ActionDescriptor.ControllerTypeInfo.AsType());
+		}
 
-        private void RegisterControllers()
-        {
-            _container.Register(
-                AllTypes.FromAssembly(Assembly.GetExecutingAssembly()).
-                BasedOn<IController>().
-                Configure(c => c.LifeStyle.Transient));
-        }
-    }
+		public void ReleaseController(ControllerContext context, object controller)
+		{
+			_container.Release(controller);
+		}
+	}
 }
